@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect
-from blog.models import Article
+from apps.blog.models import Article
 
 class FieldsMixin():
     """Verify that the current user is authenticated."""

@@ -6,14 +6,10 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
 from .forms import SignupForm
-from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from blog.models import Article
+from apps.blog.models import Article
 from django.urls import reverse_lazy
 from .mixins import FieldsMixin, FormValidMixin, AuthoAccessMixin, SuperUserMixin, AuthorsAccessUserMixin
 from .models import User

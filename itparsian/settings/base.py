@@ -1,13 +1,10 @@
 import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = 'django-insecure-%^q9=f&^(z!znbm39!u+g^1-lcrqmk9cqo!)&@#dj@+tnyj5o4'
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 INSTALLED_PACKAGES = [
     'star_ratings',
@@ -19,9 +16,9 @@ INSTALLED_PACKAGES = [
 ]
 
 MY_APPS = [
-    'account.apps.AccountConfig',
-    'blog.apps.BlogConfig',
-    'mysite.apps.MysiteConfig',
+    'apps.account.apps.AccountConfig',
+    'apps.blog.apps.BlogConfig',
+    'apps.mysite.apps.MysiteConfig',
     'ticket.apps.TicketConfig',
 ]
 INSTALLED_APPS = [
@@ -37,7 +34,7 @@ INSTALLED_APPS = [
 ]
 
 MY_MIDDLEWARE = [
-    'blog.middleware.SaveIpMiddleware',
+    'apps.blog.middleware.SaveIpMiddleware',
 ]
 
 MIDDLEWARE = [
@@ -72,12 +69,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'itparsian.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 AUTH_PASSWORD_VALIDATORS = [
     {

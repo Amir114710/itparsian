@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.views.generic import ListView
 from .models import ProjectDone, ContentBox, Services
-from blog.models import Article
+from apps.blog.models import Article
 # Create your views here.
 
 class HomeView(ListView):
