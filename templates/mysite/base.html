@@ -1,0 +1,180 @@
+{% load static %}
+{% load base-tags %}
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.rtl.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="{% static 'css/recentbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/faq-style.css' %}"/>
+    {% block custom_link %}{% endblock %}
+
+
+    {% block title %}{% endblock %}
+
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+<nav class="navbar navbar-dark navbar-expand-md fixed-top" id="mainNav">
+    <div class="container-fluid d-flex">
+        <button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive"
+                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                value="Menu"><i class="bi bi-list"></i></button>
+        <button class="link_btn btn-outline-blg d-block d-md-none" ><a data-bs-toggle="collapse" data-bs-target="#call-to-action" aria-expanded="false" aria-controls="call-to-action"><span >مشاوره رایگان</span></a></button>
+        <a class="navbar-brand" href="/"><img src="{% static 'img/logopars2.png' %}" class="" height="45" alt="logo"></a>
+
+
+        {% category_navbar %}
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <ul class="navbar-nav me-auto">
+                {% for item in main %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ item.link }}">{{ item.title }}</a>
+                    </li>
+
+
+                {% endfor %}
+
+            </ul>
+
+            <div class="d-flex order-1">
+{#                <div class="p-1 me-2" data-bs-toggle="tooltip" data-bs-placement="left" title="جست و جو ">#}
+{#                    <i data-bs-toggle="collapse" data-bs-target="#searchdiv" class="bi bi-search text-light fs-4"></i>#}
+{#                </div>#}
+{#                <div class="p-1 me-2" data-bs-toggle="tooltip" data-bs-placement="left" title="ورود به حساب کاربری">#}
+{#                    <a href="login"><i class="bi bi-box-arrow-in-left text-light fs-4"></i></a>#}
+{#                </div>#}
+                <div class="p-1 me-2">
+
+                        <button class="link_btn btn-outline-blg d-none d-md-block" ><a data-bs-toggle="collapse" data-bs-target="#call-to-action" aria-expanded="false" aria-controls="call-to-action"><span >مشاوره رایگان</span></a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="collapse call-to-action" id="call-to-action">
+  <div class="card card-body bg-dark">
+      <form class="form-container" action="{% url 'ticket_app:ticket' %}" method="post">
+          {% csrf_token %}
+            <p class="h6 text-gold">بعد از چند دقیقه با شما تماس گرفته میشود</p>
+          <input type="email" class="call-email bg-secondary  input-call" name="email" placeholder="ایمیل  خود را وارد نمایید">
+
+          <input type="tel" class="call-phone bg-secondary  input-call" name="phone" placeholder="تلفن خود را وارد نمایید">
+
+
+
+
+            <textarea placeholder="پیام خود را بنویسید..." name="msg" class="bg-secondary textarea-call" required></textarea>
+          <hr class="text-gold">
+          <p class="text-gold text-center">تلفن تماس:  <span>  02165276806  </span></p>
+          <p id="seccess-send" style="display: none;" class="text-success text-center">پیام شما با موفقیت ارسال شد</p>
+
+          <hr class="text-gold">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6 d-flex justify-content-center"><button id="send" type="submit" class="btnit">ارسال</button></div>
+                    <div class="col-6 d-flex justify-content-center"><button  type="button" data-bs-toggle="collapse" data-bs-target="#call-to-action" aria-expanded="false" aria-controls="call-to-action" class="btnit">بستن</button></div>
+                </div>
+
+
+
+          </form>
+  </div>
+</div>
+{% block main %}{% endblock %}
+<footer class="pt-5 footer-main" >
+    <div >
+        <div class="container">
+            <div class="d-flex justify-content-center"><img src="{% static 'img/divider4.png' %}" class="img-fix mb-4" alt=""></div>
+        <div class="row">
+
+            <div class="col-12 col-md-4">
+                <p class="text-asli text-justify text-start my-2 px-4">
+            مجموعه آی تی پارسیان از سال 1397 فعالیت خود را در زمینه طراحی وب سایت، طراحی اپلیکیشن و دیجیتال مارکتینگ
+            آغاز نموده است. تلاش ما همواره بر این بوده که با بهره گیری از نیروی متخصص و با تجربه در کنار نیروی جوان و با
+            انگیزه، برترین خدمات را با استفاده از جدیدترین استانداردهای روز در دنیای وب ارائه دهیم.
+
+        </p>
+
+            </div>
+            <div class="col-12 col-md-2 d-flex flex-column">
+                <a href="/web-design" class="link-light my-2">طراحی وبسایت</a>
+                <a href="/mobile-app" class="link-light my-2">طراحی اپلیکیشن موبایل</a>
+                <a href="#" class="link-light my-2">دیجیتال مارکتینگ</a>
+                <a href="#" class="link-light my-2">تولید محتوا</a>
+                <a href="#" class="link-light my-2">سئو</a>
+
+            </div>
+
+            <div class="col-12 col-md-2 d-flex flex-column">
+                <a href="/" class="link-light my-2">صفحه اصلی</a>
+                <a href="/blog" class="link-light my-2">وبلاگ</a>
+                <a href="/about-us" class="link-light my-2">درباره ما</a>
+
+
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="d-flex align-items-center my-3"><i class="bi bi-geo-alt h4 me-3 text-blg"></i><p class="h5 text-asli">آدرس:  تهران - شهریار - خیابان ولیعصر- مجتمع حافظ - پلاک 13</p></div>
+                    <div class="d-flex align-items-center my-3"><i class="bi bi-telephone h4 me-3 text-blg"></i><p class="h5 text-asli">تلفن تماس : 65276806-021</p></div>
+                    <div class="d-flex align-items-center my-3"><i class="bi bi-whatsapp h4 me-3 text-blg"></i><p class="h5 text-asli">واتس اپ :0309355-0902   |   0309354-0902</p></div>
+                    <div class="d-flex align-items-center my-3"><i class="bi bi-envelope h4 me-3 text-blg"></i><p class="h5 text-asli">ایمیل : info@itparsian.com</p></div>
+            </div>
+        </div>
+    </div>
+        <div class="d-flex flex-row justify-content-center">
+            <div class="mx-2"><a class="text-success my-2 h3" href="">
+                <i class="bi bi-whatsapp"></i>
+            </a></div>
+            <div class="mx-2"><a class="text-info my-2 h3" href="">
+                <i class="bi bi-telegram"></i>
+            </a></div>
+            <div class="mx-2"><a class="text-danger my-2 h3" href="">
+                <i class="bi bi-instagram"></i>
+            </a></div>
+            <div class="mx-2"><a class="text-primary my-2 h3" href="">
+                <i class="bi bi-linkedin"></i>
+            </a></div>
+            <div class="mx-2"><a class="text-danger my-2 h3" href="">
+                <i class="bi bi-youtube"></i>
+            </a></div>
+            <div class="mx-2"><a class=" text-info my-2 h3" href="">
+                <i class="bi bi-twitter"></i>
+            </a></div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="privacy-div text-center d-flex align-items-center justify-content-center">
+
+
+                <p class="text-gold h6">تمامی حقوق مادی و معنوی وب سایت برای آی تی پارسیان محفوظ است <i
+                        class="bi bi-patch-check-fill text-info"></i></p>
+
+
+
+        </div>
+    </div>
+
+
+</footer>
+
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'js/navbar-shrink.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<div class="collapse navbar-collapse nav" id="navbarResponsive">
+    <ul class="navbar-nav me-auto">
+        {% for item in main %}
+            {% if item.parent == None %}
+                {% if item.children.all %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ item.link }}">{{ item.title }}<span><i class="bi bi-caret-down-fill text-warning"></i></span></a>
+                {% else %}
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{ item.link }}">{{ item.title }}</a>
+                {% endif %}
+                    {% if item.children.all %}
+                        {% include 'home/partials/category_loop.html' %}
+                    {% endif %}
+                </li>
+
+
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+</div>

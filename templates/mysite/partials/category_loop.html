@@ -1,0 +1,11 @@
+
+<ul class="navbar-nav ms-auto py-4 py-lg-0 ul-child">
+    {% for item in item.children.all %}
+    <li class="nav-item"><a class="nav-link "
+            href="{{ item.link }}">{{ item.title }}</a>
+            {% if item.children.all %}
+                {% include 'home/partials/category_loop.html' %}
+            {% endif %}
+    </li>
+    {% endfor %}
+</ul>
