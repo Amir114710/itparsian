@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>آی تی پارسیان | وبلاگ</title>
+{% endblock %}
+{% block custom_link %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+{% endblock %}
+{% block main %}
+
+    <header>
+        <div class="headbackblog">
+
+            <div class="container">
+                <div class="fasele120"></div>
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <p class="text-gold h2 text-center my-3 fw-bold">وبلاگ آی تی پارسیان</p>
+                        <p class="text-blg h5 text-center my-3">با وبلاگ ما همیشه به روز باش</p>
+                        <hr class="fw-bold text-gold">
+                        <div class="input-group my-3">
+                            <button class="btn btn-gold" type="button" id="button-addon1"><i class="bi bi-search"></i>
+                            </button>
+                            <input type="text" class="form-control search-form" placeholder=" جستجو..."
+                                   aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        </div>
+
+
+                    </div>
+                    <div class="col-12 col-md-4"></div>
+                    <div class="col-12 col-md-4"></div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                {% for item in object_list %}
+                    <div class="col-lg-6 mb-4 pb-2">
+                        <div class="card blog blog-primary shadow rounded overflow-hidden">
+                            <div class="row align-items-center g-0">
+                                <div class="col-md-6">
+                                    <div class="image card-img position-relative overflow-hidden">
+                                        <img alt="" class="img-fluid" src="{{ item.thumbnail.url }}"/>
+                                        <div class="card-overlay"></div>
+                                        <div class="blog-tag">
+                                            {% for cat in item.category.active %}
+                                                <a class="badge bg-light" href="javascript:void(0)">{{ cat.title }}</a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card-body content">
+                                        <a class="h5 title text-dark d-block mb-0" href="#">
+                                            {{ item.title }}
+                                        </a>
+                                        <p class="text-muted mt-2 mb-2">{{ item.description|striptags|truncatewords:12 }}</p>
+                                        <a class="link text-dark" href="#">ادامه مطلب <i
+                                                class="uil uil-arrow-left align-middle"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+
+                {% endfor %}
+            </div><!--end row-->
+
+
+        <div class="row">
+            <div class="col-12">
+                <ul class="pagination justify-content-center mb-0">
+                    <li class="page-item">
+                        <a aria-label="Previous" class="page-link" href="#">
+                            <span aria-hidden="true"><i class="mdi mdi-chevron-right mdi-18px"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a aria-label="Next" class="page-link" href="#">
+                            <span aria-hidden="true"><i class="mdi mdi-chevron-left mdi-18px"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div><!--end col-->
+        </div><!--end row-->
+        </div><!--end container-->
+    </section>
+{% endblock %}

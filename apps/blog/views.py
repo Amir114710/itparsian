@@ -5,37 +5,13 @@ from .models import Article, Category
 from apps.account.mixins import AuthoAccessMixin
 
 
-# Create your views here.
-
-# def home(request, page=1):
-#     # start code for pagination
-#     articles_list = Article.objects.published()
-#     paginator = Paginator(articles_list, 4)
-#     articles = paginator.get_page(page)
-#     # end code for pagination
-#     context = {
-#         'article': articles,
-#     }
-#     return render(request, 'blog/home.html', context)
 class ArticleList(ListView):
-    # model = Article
-    # template_name = 'blog/home.html'
+    model = Article
+    template_name = 'blog/blog.html'
     queryset = Article.objects.published()
     paginate_by = 8
 
 
-
-
-
-# def detail(request, slug):
-#         # try:
-#         #     article = Article.objects.get(slug=slug)
-#         # except Exception as e:
-#         #     raise Http404
-#     context = {
-#         'single': get_object_or_404(Article.objects.published(), slug=slug)
-#     }
-#     return render(request, 'blog/detail.html', context)
 class ArticleDetail(DetailView):
     template_name = 'blog/detail.html'
     def get_object(self):
