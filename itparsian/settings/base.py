@@ -19,7 +19,7 @@ MY_APPS = [
     'apps.account.apps.AccountConfig',
     'apps.blog.apps.BlogConfig',
     'apps.mysite.apps.MysiteConfig',
-    'ticket.apps.TicketConfig',
+    'apps.ticket.apps.TicketConfig',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
