@@ -11,12 +11,11 @@
 
     <header>
         <div class="headbackblog">
-
-            <div class="container">
-                <div class="fasele120"></div>
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <p class="text-gold h2 text-center my-3 fw-bold">وبلاگ آی تی پارسیان</p>
+            <div class="fasele120"></div>
+            <div class="d-flex justify-content-start">
+                <div class="">
+                        <div class="ms-md-5">
+                            <p class="text-gold h2 text-center my-3 fw-bold">وبلاگ آی تی پارسیان</p>
                         <p class="text-blg h5 text-center my-3">با وبلاگ ما همیشه به روز باش</p>
                         <hr class="fw-bold text-gold">
                         <div class="input-group my-3">
@@ -25,12 +24,12 @@
                             <input type="text" class="form-control search-form" placeholder=" جستجو..."
                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
                         </div>
+                        </div>
 
 
                     </div>
-                    <div class="col-12 col-md-4"></div>
-                    <div class="col-12 col-md-4"></div>
-                </div>
+
+
             </div>
         </div>
 
@@ -61,7 +60,7 @@
                                             {{ item.title }}
                                         </a>
                                         <p class="text-muted mt-2 mb-2">{{ item.description|striptags|truncatewords:12 }}</p>
-                                        <a class="link text-dark" href="#">ادامه مطلب <i
+                                        <a class="link text-dark" href="{% url 'blog:detail' item.slug %}">ادامه مطلب <i
                                                 class="uil uil-arrow-left align-middle"></i></a>
                                     </div>
                                 </div>
@@ -73,25 +72,37 @@
             </div><!--end row-->
 
 
-        <div class="row">
-            <div class="col-12">
-                <ul class="pagination justify-content-center mb-0">
-                    <li class="page-item">
-                        <a aria-label="Previous" class="page-link" href="#">
-                            <span aria-hidden="true"><i class="mdi mdi-chevron-right mdi-18px"></i></span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link active" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a aria-label="Next" class="page-link" href="#">
-                            <span aria-hidden="true"><i class="mdi mdi-chevron-left mdi-18px"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div><!--end col-->
-        </div><!--end row-->
+            <div class="row">
+                <div class="col-12">
+                    <ul class="pagination justify-content-center mb-0">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a aria-label="Previous" class="page-link"
+                                   href="?page={{ page_obj.previous_page_number }}">
+                                    <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% for page in page_obj.paginator.page_range %}
+                            {% if page_obj.number == page %}
+                                <li class="page-item"><a class="page-link active" href="?page={{ page }}">{{ page }}</a>
+                                </li>
+                            {% elif page > page_obj.number|add:'-3' and page < page_obj.number|add:'3' %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a aria-label="Next" class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                    <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div><!--end col-->
+            </div><!--end row-->
         </div><!--end container-->
     </section>
 {% endblock %}

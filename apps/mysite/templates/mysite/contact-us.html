@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block custom_link %}
+    <link rel="stylesheet" href="{% static 'mysite/about-contact.css' %}">
+{% endblock %}
+
+
+{% block title %}<title>تماس با ما</title>{% endblock %}
+{% block main %}
+    <div class="fasele120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+
+                    <div class="d-flex align-items-center mb-2"><i class="bi bi-geo-alt h4 me-3 text-blg"></i><p class="h5 text-blg">آدرس:  تهران - شهریار - خیابان ولیعصر- مجتمع حافظ - پلاک 13</p></div>
+                    <div class="d-flex align-items-center mb-2"><i class="bi bi-telephone h4 me-3 text-blg"></i><p class="h5 text-blg">تلفن تماس : 65276806-021</p></div>
+                    <div class="d-flex align-items-center mb-2"><i class="bi bi-whatsapp h4 me-3 text-blg"></i><p class="h5 text-blg">واتس اپ :0309355-0902   |   0309354-0902</p></div>
+                    <div class="d-flex align-items-center mb-2"><i class="bi bi-envelope h4 me-3 text-blg"></i><p class="h5 text-blg">ایمیل : info@itparsian.com</p></div>
+
+            </div>
+            <div class="col-12 col-md-6 form-inner">
+                <p class="h4 text-blg">تماس با ما :</p>
+                <form action="" method="post" class="">
+                    {% csrf_token %}
+
+
+                    <div class="form-floating ">
+                        <input type="text" class="form-control  text-blg" id="floatingInput" placeholder="نام خود را وارد کنید">
+                        <label for="floatingInput" class="text-blg">نام </label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control  text-blg" id="lastName"
+                               placeholder="نام خانوادگی خود را وارد کنید ">
+                        <label for="lastName" class="text-blg">نام خانوادگی</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control  text-blg" id="phone"
+                               placeholder="تلفن تماس">
+                        <label for="phone" class="text-blg">تلفن تماس</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="email" class="form-control  text-blg" id="Email" placeholder="name@example.com">
+                        <label for="Email" class="text-blg">ایمیل</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control  text-blg" style="height: 100px" placeholder="Leave a comment here"
+                                  id="floatingTextarea"></textarea>
+                        <label class="text-blg" for="floatingTextarea">متن پیام</label>
+                    </div>
+                    <br>
+                    <div class="text-center"><button type="submit" class=" btn btn-outline-blg2">ارسال</button></div>
+
+                </form>
+            </div>
+{#            <div class="d-flex justify-content-center mt-5 mb-3">#}
+{#                <img src="{% static 'img/divider-blg.png' %}" class="img-fluid" alt="">#}
+{#            </div>#}
+            <div class="fasele60"></div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block custom_link %}
+    <link rel="stylesheet" href="{% static 'mysite/about-contact.css' %}">
+{% endblock %}
+
+
+{% block title %}<title>درباره ما</title>{% endblock %}
+{% block main %}
+    <div class="fasele120"></div>
+    <div class="container">
+    <div class="d-flex justify-content-center align-items-center about-logo py-5">
+
+        <img src="{% static 'img/logopars2.png' %}" height="150px" class="mt-3" alt=>
+    </div>
+        <br>
+        <p class="text-blg text-justify text-start">
+            مجموعه آی تی پارسیان از سال 1397 فعالیت خود را در زمینه طراحی وب سایت، طراحی اپلیکیشن و دیجیتال مارکتینگ
+            آغاز نموده است. تلاش ما همواره بر این بوده که با بهره گیری از نیروی متخصص و با تجربه در کنار نیروی جوان و با
+            انگیزه، برترین خدمات را با استفاده از جدیدترین استانداردهای روز در دنیای وب ارائه دهیم.
+            <br>
+            <br>
+            تیم تخصصی ما از ابتدا فعالیت خود را در زمینه طراحی وب سایت و طراحی UI و UX آغاز نمود، اما دیری نگذشت
+            که با توجه به گستردگی کسب و کار در دنیای وب و همچنین استقبال کسب و کارها از اپلیکشن های موبایل، اقدام به
+            افزودن بخش های دیگر از جمله خدمات طراحی اپلیکیشن موبایل و همچنین دیجیتال مارکتینگ و تولید محتوا برگرفته از
+            متخصصین توانمند نمود. حال با گذشت ۴ سال از فعالیت خود و تجربه راه اندازی کسب و کار های موفق، آماده ارائه
+            خدمات نوین به صورت صفر تا صد، در زمینه راه اندازی کسب های آنلاین می باشد.
+        </p>
+    <div class="fasele60"></div>
+ <div class="d-flex justify-content-center mt-5 mb-3">
+                <img src="{% static 'img/divider-blg.png' %}" class="img-fluid" alt="">
+            </div>
+    <div class="container">
+    <p class="h3 text-blg mb-5"> تکنولوژی ها </p>
+    <div class="">
+        <div class="row d-flex justify-content-between flex-wrap">
+            <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/6.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">Python</p>
+        </div>
+            <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/2.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">Django</p>
+        </div>
+            <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/dart.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">Dart</p>
+        </div>
+            <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/flutter.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">Flutter</p>
+        </div>
+            <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/4.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">JavaScript</p>
+        </div>
+            <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/5.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">JQuery</p>
+        </div>
+            <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/1.png' %}" class="png-items" height="50px" width="50px" alt="">
+                <p class="text-blg h6 mt-3">bootstrap</p>
+        </div>
+       <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/3.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">HTML5</p>
+        </div>
+        <div class="col-4 col-md-1 png-tech d-flex flex-column align-items-center">
+            <img src="{% static 'img/main-technolegy/7.png' %}" class="png-items" height="50px" width="50px" alt="">
+            <p class="text-blg h6 mt-3">CSS3</p>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+    </div>
+    <div class="fasele60"></div>
+
+
+{% endblock %}

@@ -1,10 +1,93 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-    <title></title>
+
+{% block custom_link %}
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}"/>
+
+
+
 {% endblock %}
 
 {% block main %}
+
+    <header>
+    <div class="fasele120"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 d-flex justify-content-center">
+                <img src="{{ object.thumbnail.url }}" class="img-fluid rounded-3" alt="article-image-masthead">
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                 <div class="d-flex flex-column align-items-center text-gold">
+                       <h1 class="text-center text-gold">{{ object.title }}</h1>
+                          {% if object.is_special == True %}
+                               <span class="badge bg-danger tagvip rounded-pill">ویژه</span>
+                           {% endif %}
+
+                      <time class="">{{ object.jpublish }}</time>
+
+                       <div> بازدید ها : {{ object.hits.count }}</div>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+    </header>
+    <!-- Post Content-->
+    <div class="container mt-5">
+    <div class="container d-flex justify-content-center">
+    <img src="{% static 'img/divider.png' %}" class="img-fluid mb-4" alt="">
+    </div>
+        {#    <div class="slider-dvider sticky-top"></div>#}
+        <div class="row">
+
+            <div class="col-12 col-md-3 d-none d-md-flex flex-column align-items-center bg-light rounded-3 border-1 shadow-lg h-25 make-me-sticky">
+                <img src="{{ object.thumbnail.url }}" class="img-thumbnail my-3 rounded-3" alt="tumbnail-article-image">
+                <div class="slider-content d-flex flex-column align-items-center">
+                    <p class="h5 text-blg text-center">
+                        {{ object.title }}
+                        {% if object.is_special == True %}
+                            <span class="badge bg-danger tagvip rounded-pill">ویژه</span>
+                        {% endif %}
+                    </p>
+                    <p class="h6 text-dark">{{ object.jpublish }}</p>
+{#                    <div>{% ratings object %}</div>#}
+                    <div> بازدید ها : {{ object.hits.count }}</div>
+                </div>
+                <div class="mb-3">
+                    {% for cat in object.category.active %}
+                        <a class="text-info card-text-second" href="{% url 'blog:category' cat.slug %}">
+                            #{{ cat.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-12 col-md-9">
+                <div class="mb-4 ms-md-5 bg-light rounded-3 shadow-lg">
+                    <div class="text-justify textbox-detail p-5 text-article-detail">
+                        <p class="text-article-detail">
+                            {% if object.is_special %}
+                                {% if user.is_authenticated and user.is_special_user or user == object.author or user.is_superuser %}
+                                    {{ object.description|safe }}
+                                {% else %}
+                                    {{ object.description|striptags|truncatewords:20 }}
+                                    <p class="alert alert-success text-center">این مقاله ویژه است و برای مشاهده آن
+                                        نیاز به <a class="alert-link" href="#">اشتراک ویژه</a> دارید</p>
+                                {% endif %}
+                            {% else %}
+                                {{ object.description|safe }}
+                            {% endif %}
+                        </p>
+{#                        {% render_comments object request %}#}
+{#                        {% include_bootstrap %}#}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

@@ -1,6 +1,7 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from .models import ProjectDone, ContentBox, Services
 from apps.blog.models import Article
+from django.shortcuts import render
 # Create your views here.
 
 class HomeView(ListView):
@@ -15,3 +16,15 @@ class HomeView(ListView):
             'recent_articles': Article.objects.filter(status="p").order_by('-publish')[0:4]
         }
         return context
+
+class AboutUsView(TemplateView):
+    template_name = 'mysite/about-us.html'
+
+
+class ContactUsView(TemplateView):
+    template_name = 'mysite/contact-us.html'
+
+
+
+
+
