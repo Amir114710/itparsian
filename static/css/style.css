@@ -651,3 +651,10 @@ btnit:focus{
     bottom: 30px;
     left: 30px;
 }
+
+.service-image{
+    width:5.5em;
+    height:5.5em;
+    text-align: center;
+    margin-right: 8.5em;
+}

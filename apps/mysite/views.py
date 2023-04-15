@@ -1,5 +1,5 @@
 from django.views.generic import ListView, TemplateView
-from .models import ProjectDone, ContentBox, Services
+from .models import ProjectDone, ContentBox, Services , TipsAbout
 from apps.blog.models import Article
 from django.shortcuts import render
 # Create your views here.
@@ -10,6 +10,7 @@ class HomeView(ListView):
 
     def get_queryset(self):
         context = {
+            'tip' : TipsAbout.objects.all(),
             'project': ProjectDone.objects.all(),
             'content': ContentBox.objects.all(),
             'services': Services.objects.all(),

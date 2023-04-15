@@ -61,32 +61,25 @@
                         <div class="row mt-4">
                             <div class="col-lg-6 col-12">
                                 <ul class="mb-0 list-unstyled">
-                                    <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> کاملا ریسپانسیو
-                                    </li>
-                                    <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> امور مالی و بازسازی
-                                    </li>
-                                    <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> حسابرسی و اطمینان
-                                    </li>
-                                    <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> معاملات و بازار سهام
-                                    </li>
+                                    {% for item in object.tip %}
+                                        {% if item.first_col %}
+                                        <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
+                                            class="uil uil-check-circle align-middle"></i></span> {{item.title}}
+                                        </li>
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
-                            </div><!--end col-->
-
+                            </div>
+                            <!--end col-->
                             <div class="col-lg-6 col-12">
                                 <ul class="mb-0 list-unstyled">
-                                    <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> استراتژی و برنامه ریزی
-                                    </li>
-                                    <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> نرم افزار و تحقیق
-                                    </li>
-                                    <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> پشتیبانی و نگهداری
-                                    </li>
+                                    {% for item in object.tip %}
+                                        {% if item.seconde_col %}
+                                        <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
+                                            class="uil uil-check-circle align-middle"></i></span> {{item.title}}
+                                        </li>
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div><!--end col-->
                         </div><!--end row-->
@@ -183,85 +176,25 @@
     </div>
     <div class="container">
         <div class="row">
+            {% for item in object.services %}
             <div class="col-lg-4 col-md-6">
                 <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
-                    <i class="uil uil-circle-layer icon h1"></i>
-
+                    <def class="service-image">
+                        <img src="{{item.icon.url}}" width="100%" height="100%" alt="">
+                    </def>
                     <div class="content">
-                        <a class="title text-light h5" href="page-single-service.html">طراحی کاملاً پیکسلی</a>
+                        <a class="title text-light h5" href="page-single-service.html">{{item.title}}</a>
 
-                        <p class="text-asli mb-0 mt-3">این امر مانع از تکرار الگوهای مختلف می شود و مقایسه حروف مختلف را
-                            تسهیل می کند.</p>
+                        <p class="text-asli mb-0 mt-3">{{item.description|safe}}</p>
                     </div>
                 </div>
-            </div><!--end col-->
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4 mt-sm-0 pt-sm-0">
-                <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
-                    <i class="uil uil-window-grid icon h1"></i>
-
-                    <div class="content">
-                        <a class="title text-light h5" href="page-single-service.html">چیدمان نامحدود</a>
-
-                        <p class="text-asli mb-0 mt-3">این امر مانع از تکرار الگوهای مختلف می شود و مقایسه حروف مختلف را
-                            تسهیل می کند.</p>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4 mt-lg-0 pt-lg-0">
-                <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
-                    <i class="uil uil-shopping-cart icon h1"></i>
-
-                    <div class="content">
-                        <a class="title text-light h5" href="page-single-service.html">خرید آنلاین</a>
-
-                        <p class="text-asli mb-0 mt-3">این امر مانع از تکرار الگوهای مختلف می شود و مقایسه حروف مختلف را
-                            تسهیل می کند.</p>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4">
-                <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
-                    <i class="uil uil-award-alt icon h1"></i>
-
-                    <div class="content">
-                        <a class="title text-light h5" href="page-single-service.html">ساده و امن</a>
-
-                        <p class="text-asli mb-0 mt-3">این امر مانع از تکرار الگوهای مختلف می شود و مقایسه حروف مختلف را
-                            تسهیل می کند.</p>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4">
-                <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
-                    <i class="uil uil-thumbs-up icon h1"></i>
-
-                    <div class="content">
-                        <a class="title text-light h5" href="page-single-service.html">بروزرسانی های خودکار</a>
-
-                        <p class="text-asli mb-0 mt-3">این امر مانع از تکرار الگوهای مختلف می شود و مقایسه حروف مختلف را
-                            تسهیل می کند.</p>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4">
-                <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
-                    <i class="uil uil-circuit icon h1"></i>
-
-                    <div class="content">
-                        <a class="title text-light h5" href="page-single-service.html">بدون علم موشک</a>
-
-                        <p class="text-asli mb-0 mt-3">این امر مانع از تکرار الگوهای مختلف می شود و مقایسه حروف مختلف را
-                            تسهیل می کند.</p>
-                    </div>
-                </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
+            </div>
+            {% endfor %}
+            <!--end col-->
+        </div>
+        <!--end row-->
+    </div>
+    <!--end container-->
 
     <div class="fasele"></div>
 

@@ -97,6 +97,10 @@ class Article(models.Model):
 class IpAddress(models.Model):
     ip_address = models.GenericIPAddressField(verbose_name="آدرس آی پی")
 
+    class Meta:
+        verbose_name = 'اپی ادرس های سایت'
+        verbose_name_plural = 'اپی ادرس های سایت'
+
 class ArticleHit(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     ip_address = models.ForeignKey(IpAddress, on_delete=models.CASCADE)

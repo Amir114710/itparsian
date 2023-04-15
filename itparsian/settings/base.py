@@ -12,7 +12,6 @@ INSTALLED_PACKAGES = [
     'crispy_forms',
     'django_gravatar',
     'extensions',
-
 ]
 
 MY_APPS = [
@@ -22,6 +21,7 @@ MY_APPS = [
     'apps.ticket.apps.TicketConfig',
 ]
 INSTALLED_APPS = [
+    'admin_persian',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,7 +84,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-ir'
 
 TIME_ZONE = 'UTC'
 
