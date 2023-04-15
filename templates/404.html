@@ -1,0 +1,39 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/csoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <title>صفحه مورد نظر پیدا نشد</title>
+</head>
+<body>
+<div class="heightfull">
+    <div class="comming-soon">
+        <div class="cs-inner">
+            <div class="logo">
+                <img src="{% static 'img/logopars2.png' %}" class="cs-logo" alt="">
+            </div>
+            <div class="message">
+                <p class="notfound">
+                    404
+                </p>
+                <p class="cs-message">
+                    صفحه مورد نظر شما یافت نشد
+                </p>
+                <a class="btn btn-gold" href="{% url 'site:home'%}">صفحه اصلی</a>
+                <div class="loading-section mb-5">
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

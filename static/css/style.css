@@ -645,3 +645,9 @@ btnit:focus{
             -webkit-transform: rotate(-359deg);
     }
 }
+
+.adminBtnNav{
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+}
