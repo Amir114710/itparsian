@@ -88,6 +88,47 @@
                 </div>
             </div>
         </div>
+        <br><br>
+        <div class="container d-flex justify-content-center">
+            <img src="{% static 'img/divider.png' %}" class="img-fluid mb-4" alt="">
+        </div>
+        <div class='article-comment'>
+            <h1 class="comment-name">نظرات({{object.comments.count}}) : </h1>
+            <div class="user-comment" id="location-redirect">
+                {% for comment in object.comments.all %}
+                    {% if comment.parent == None %}
+                    <p class="user-comment">{{comment.users}}</p>
+                    <p class="user-comment">{{comment.message}}</p>
+                    <p class="user-comment">{{comment.created}}</p>
+                    <button class="btn btn-dark" onclick="set_value({{comment.id}})">پاسخ به نظر</button>
+                    <hr>
+                    {% endif %}
+                    {% for reply in comment.replies.all %}
+                    <div class="reply">
+                        <p class="user-comment">{{reply.users}}</p>
+                        <p class="user-comment">{{reply.message}}</p>
+                        <p class="user-comment">{{reply.created}}</p>
+                        <hr>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name='name'  id="comments-input-name" placeholder="نام" value="" required="required"data-validation-required-message="Please enter your message">
+                <br>
+                <input type="hidden" name='parent_id'  id="parent_id" placeholder="parent_id" value="">
+                <textarea class="form-control" name="message" rows="4" id="comments-input" placeholder="پیام مورد نظر" required="required"data-validation-required-message="Please enter your message"></textarea>
+                <br>
+                <button type="submit" class="btn btn-danger" id="send-button">ارسال</button>
+            </form>
+        </div>
     </div>
-
+    <script>
+        function set_value(id) {
+            document.getElementById('parent_id').value = id;
+            document.getElementById('comments-input').placeholder = 'پاسخ مورد نظر خود را بنویسید';
+            window.location.href = '#location-redirect'
+        }
+    </script>
 {% endblock %}

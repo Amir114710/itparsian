@@ -658,3 +658,26 @@ btnit:focus{
     text-align: center;
     margin-right: 8.5em;
 }
+
+.comment-name{
+    color: #D0A85C;
+}
+
+.user-comment{
+    color: white!important;
+    font-size: 20px;
+}
+
+#comments-input{
+    background:None;
+    color: white;
+}
+
+#comments-input-name{
+    background:None;
+    color: white;
+}
+
+.reply{
+    margin-right: 5em;
+}

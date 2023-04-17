@@ -71,3 +71,4 @@ class ArticleAdmin(admin.ModelAdmin):
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(IpAddress)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Comment)

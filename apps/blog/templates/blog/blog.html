@@ -18,12 +18,14 @@
                             <p class="text-gold h2 text-center my-3 fw-bold">وبلاگ آی تی پارسیان</p>
                         <p class="text-blg h5 text-center my-3">با وبلاگ ما همیشه به روز باش</p>
                         <hr class="fw-bold text-gold">
-                        <div class="input-group my-3">
-                            <button class="btn btn-gold" type="button" id="button-addon1"><i class="bi bi-search"></i>
-                            </button>
-                            <input type="text" class="form-control search-form" placeholder=" جستجو..."
-                                   aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        </div>
+                        <form action="{% url 'blog:search' %}">
+                            <div class="input-group my-3">
+                                <button class="btn btn-gold" type="submit" id="button-addon1"><i class="bi bi-search"></i>
+                                </button>
+                                <input type="text" class="form-control search-form" name="q" placeholder=" جستجو..."
+                                       aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+                        </form>
                         </div>
 
 
