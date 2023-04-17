@@ -12,36 +12,36 @@
 {% block main %}
 
     <header>
-    <div class="fasele120"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 d-flex justify-content-center">
-                <img src="{{ object.thumbnail.url }}" class="img-fluid rounded-3" alt="article-image-masthead">
+        <div class="fasele120"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 d-flex justify-content-center">
+                    <img src="{{ object.thumbnail.url }}" class="img-fluid rounded-3" alt="article-image-masthead">
+                </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
-                 <div class="d-flex flex-column align-items-center text-gold">
-                       <h1 class="text-center text-gold">{{ object.title }}</h1>
-                          {% if object.is_special == True %}
-                               <span class="badge bg-danger tagvip rounded-pill">ویژه</span>
-                           {% endif %}
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+                    <div class="d-flex flex-column align-items-center text-gold">
+                        <h1 class="text-center text-gold">{{ object.title }}</h1>
+                        {% if object.is_special == True %}
+                            <span class="badge bg-danger tagvip rounded-pill">ویژه</span>
+                        {% endif %}
 
-                      <time class="">{{ object.jpublish }}</time>
+                        <time class="">{{ object.jpublish }}</time>
 
-                       <div> بازدید ها : {{ object.hits.count }}</div>
+                        <div> بازدید ها : {{ object.hits.count }}</div>
 
                     </div>
+                </div>
             </div>
         </div>
-    </div>
     </header>
     <!-- Post Content-->
     <div class="container mt-5">
-    <div class="container d-flex justify-content-center">
-    <img src="{% static 'img/divider.png' %}" class="img-fluid mb-4" alt="">
-    </div>
+        <div class="container d-flex justify-content-center">
+            <img src="{% static 'img/divider.png' %}" class="img-fluid mb-4" alt="">
+        </div>
         {#    <div class="slider-dvider sticky-top"></div>#}
         <div class="row">
 
@@ -55,7 +55,7 @@
                         {% endif %}
                     </p>
                     <p class="h6 text-dark">{{ object.jpublish }}</p>
-{#                    <div>{% ratings object %}</div>#}
+                    {#                    <div>{% ratings object %}</div>#}
                     <div> بازدید ها : {{ object.hits.count }}</div>
                 </div>
                 <div class="mb-3">
@@ -81,8 +81,8 @@
                                 {{ object.description|safe }}
                             {% endif %}
                         </p>
-{#                        {% render_comments object request %}#}
-{#                        {% include_bootstrap %}#}
+                        {#                        {% render_comments object request %}#}
+                        {#                        {% include_bootstrap %}#}
                     </div>
 
                 </div>
@@ -92,43 +92,111 @@
         <div class="container d-flex justify-content-center">
             <img src="{% static 'img/divider.png' %}" class="img-fluid mb-4" alt="">
         </div>
-        <div class='article-comment'>
-            <h1 class="comment-name">نظرات({{object.comments.count}}) : </h1>
-            <div class="user-comment" id="location-redirect">
-                {% for comment in object.comments.all %}
-                    {% if comment.parent == None %}
-                    <p class="user-comment">{{comment.users}}</p>
-                    <p class="user-comment">{{comment.message}}</p>
-                    <p class="user-comment">{{comment.created}}</p>
-                    <button class="btn btn-dark" onclick="set_value({{comment.id}})">پاسخ به نظر</button>
-                    <hr>
-                    {% endif %}
-                    {% for reply in comment.replies.all %}
-                    <div class="reply">
-                        <p class="user-comment">{{reply.users}}</p>
-                        <p class="user-comment">{{reply.message}}</p>
-                        <p class="user-comment">{{reply.created}}</p>
-                        <hr>
+        <div class="row d-flex justify-content-center">
+            <div class="col-8">
+                <div class='article-comment'>
+                    <p class="comment-name h3">نظرات({{ object.comments.count }}) : </p>
+                    <div class="user-comment" id="location-redirect">
+                        {% for comment in object.comments.all %}
+                            {% if comment.parent == None %}
+                                <p class="user-comment">{{ comment.users }}</p>
+                                <p class="user-comment">{{ comment.message }}</p>
+                                <p class="user-comment">{{ comment.created }}</p>
+                                <button class="btn btn-dark" onclick="set_value({{ comment.id }})">پاسخ به نظر</button>
+                                <hr>
+                            {% endif %}
+                            {% for reply in comment.replies.all %}
+                                <div class="reply">
+                                    <p class="user-comment">{{ reply.users }}</p>
+                                    <p class="user-comment">{{ reply.message }}</p>
+                                    <p class="user-comment">{{ reply.created }}</p>
+                                    <hr>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                {% endfor %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+
+                        <textarea class="form-control" class="form-control" name="message" rows="4" id="comments-input"
+                                  placeholder="پیام مورد نظر" required="required"
+                                  data-validation-required-message="Please enter your message"></textarea>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6 pb-3">
+                                <input type="text" name='name' class="form-control" id="comments-input-name"
+                                       placeholder="نام"
+                                       value=""
+                                       required="required" data-validation-required-message="Please enter your message">
+
+                                <input type="hidden" name='parent_id' class="form-control" id="parent_id"
+                                       placeholder="parent_id"
+                                       value="">
+                            </div>
+                            <div class="col-md-6 pb-3">
+                                <input type="text" name='email' class="form-control" id="comments-input-name"
+                                       placeholder="ایمیل"
+                                       value=""
+                                       required="required" data-validation-required-message="Please enter your message">
+
+                                <input type="hidden" name='parent_id' class="form-control" id="parent_id"
+                                       placeholder="parent_id"
+                                       value="">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-gold" id="send-button">ارسال</button>
+                    </form>
+
+                </div>
             </div>
-            <form action="" method="post">
-                {% csrf_token %}
-                <input type="text" name='name'  id="comments-input-name" placeholder="نام" value="" required="required"data-validation-required-message="Please enter your message">
-                <br>
-                <input type="hidden" name='parent_id'  id="parent_id" placeholder="parent_id" value="">
-                <textarea class="form-control" name="message" rows="4" id="comments-input" placeholder="پیام مورد نظر" required="required"data-validation-required-message="Please enter your message"></textarea>
-                <br>
-                <button type="submit" class="btn btn-danger" id="send-button">ارسال</button>
-            </form>
         </div>
-    </div>
-    <script>
-        function set_value(id) {
-            document.getElementById('parent_id').value = id;
-            document.getElementById('comments-input').placeholder = 'پاسخ مورد نظر خود را بنویسید';
-            window.location.href = '#location-redirect'
-        }
-    </script>
+        <div class="fasele60"></div>
+        <p class="comment-name h3">مقالات مرتبط</p>
+        <div class="row">
+
+            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
+                <a href="">
+                    <div class="card bg-dark" style="width: 18rem;">
+                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-asli">Some quick example text to build on the card title and
+                                make up the
+                                bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
+                <a href="">
+                    <div class="card bg-dark" style="width: 18rem;">
+                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-asli">Some quick example text to build on the card title and
+                                make up the
+                                bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
+                <a href="">
+                    <div class="card bg-dark" style="width: 18rem;">
+                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-asli">Some quick example text to build on the card title and
+                                make up the
+                                bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <script>
+            function set_value(id) {
+                document.getElementById('parent_id').value = id;
+                document.getElementById('comments-input').placeholder = 'پاسخ مورد نظر خود را بنویسید';
+                window.location.href = '#location-redirect'
+            }
+        </script>
 {% endblock %}
