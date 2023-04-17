@@ -106,4 +106,21 @@ class ArticleHit(models.Model):
     ip_address = models.ForeignKey(IpAddress, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
+class Comment(models.Model):
+    users = models.CharField(max_length=500 , verbose_name = 'کاربر')
+    articles = models.ForeignKey(Article, related_name="comments" , on_delete=models.CASCADE, verbose_name = 'پست')
+
+    parent = models.ForeignKey('self' , on_delete=models.CASCADE , related_name = 'replies' , null=True , blank=True, verbose_name = 'پست جواب داده شده')
+
+    message = models.CharField(max_length=50 , null=True, blank=True, verbose_name = 'نظرات')
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.users}-{self.articles.title}'
+
+    class Meta:
+        verbose_name = 'کامنت'
+        verbose_name_plural = 'کامنت ها'
+        ordering = ('-created',)
+
 
