@@ -268,37 +268,18 @@
         <div class="fasele60"></div>
         <p class="comment-name h3">آخرین مقالات</p>
         <div class="row">
+            {% for item in object.recent_articles %}
             <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
                 <a href="#">
                     <div class="card bg-dark" style="width: 18rem;">
-                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="">
+                        <img src="{{item.thumbnail.url}}" class="card-img-top" alt="">
                         <div class="card-body text-asli">
-                            <p class="text-asli mt-2 mb-2">متن تستی</p>
+                            <p class="text-asli mt-2 mb-2"> {{item.description|safe}}</p>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
-                <a href="#">
-                    <div class="card bg-dark" style="width: 18rem;">
-                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="">
-                        <div class="card-body text-asli">
-                            <p class="text-asli mt-2 mb-2">متن تستی</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
-                <a href="#">
-                    <div class="card bg-dark" style="width: 18rem;">
-                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="">
-                        <div class="card-body text-asli">
-                            <p class="text-asli mt-2 mb-2">متن تستی</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+            {% endfor %}
         </div>
         <div class="fasele180"></div>
 
