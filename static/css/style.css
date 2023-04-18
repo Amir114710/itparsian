@@ -676,6 +676,7 @@ btnit:focus{
 #comments-input-name{
     background:None;
     color: white;
+    text-align: right!important;
 }
 
 .reply{

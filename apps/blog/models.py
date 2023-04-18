@@ -108,6 +108,7 @@ class ArticleHit(models.Model):
 
 class Comment(models.Model):
     users = models.CharField(max_length=500 , verbose_name = 'کاربر')
+    email = models.EmailField(null=True , blank=True , verbose_name='ایمیل')
     articles = models.ForeignKey(Article, related_name="comments" , on_delete=models.CASCADE, verbose_name = 'پست')
 
     parent = models.ForeignKey('self' , on_delete=models.CASCADE , related_name = 'replies' , null=True , blank=True, verbose_name = 'پست جواب داده شده')
