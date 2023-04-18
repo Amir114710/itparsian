@@ -134,14 +134,11 @@
                                        value="">
                             </div>
                             <div class="col-md-6 pb-3">
-                                <input type="text" name='email' class="form-control" id="comments-input-name"
+                                <input type="email" name='email' class="form-control" id="comments-input-name"
                                        placeholder="ایمیل"
                                        value=""
                                        required="required" data-validation-required-message="Please enter your message">
 
-                                <input type="hidden" name='parent_id' class="form-control" id="parent_id"
-                                       placeholder="parent_id"
-                                       value="">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-gold" id="send-button">ارسال</button>
@@ -153,44 +150,22 @@
         <div class="fasele60"></div>
         <p class="comment-name h3">مقالات مرتبط</p>
         <div class="row">
-
-            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
-                <a href="">
-                    <div class="card bg-dark" style="width: 18rem;">
-                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text text-asli">Some quick example text to build on the card title and
-                                make up the
-                                bulk of the card's content.</p>
+            {% for item in suggested_videos.all %}
+                {% if item.category.first == object.category.first %}
+                    {% if item.id != object.id %}
+                        <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
+                            <a href="{% url 'blog:detail' item.slug %}">
+                                <div class="card bg-dark" style="width: 18rem;">
+                                    <img src="{{item.thumbnail.url}}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-asli">{{item.description|safe}}</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
-                <a href="">
-                    <div class="card bg-dark" style="width: 18rem;">
-                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text text-asli">Some quick example text to build on the card title and
-                                make up the
-                                bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
-                <a href="">
-                    <div class="card bg-dark" style="width: 18rem;">
-                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text text-asli">Some quick example text to build on the card title and
-                                make up the
-                                bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
         </div>
         <script>
             function set_value(id) {

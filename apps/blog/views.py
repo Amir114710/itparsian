@@ -12,26 +12,30 @@ class ArticleList(ListView):
     queryset = Article.objects.published()
     paginate_by = 10
 
-
 class ArticleDetail(DetailView):
     template_name = 'blog/detail.html'
+    model = Article
+    context_object_name = 'object'
 
-    def get_object(self):
-        slug = self.kwargs.get('slug')
-        article = get_object_or_404(Article.objects.published(), slug=slug)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        article = get_object_or_404(Article , slug=self.object.slug)
+        article.save()
+        context['suggested_videos'] = Article.objects.all()[:3]
         ip_address = self.request.user.ip_address
         if ip_address not in article.hits.all():
              article.hits.add(ip_address)
-        return article
+        return context
     
     def post(self,request,slug):
         article = get_object_or_404(Article.objects.published(), slug=slug)
         user = request.POST.get('name')
+        email = request.POST.get('email')
         parent_id = request.POST.get('parent_id')
         message = request.POST.get('message')
-        Comment.objects.create(message=message, parent_id=parent_id , articles=article , users=user)
+        Comment.objects.create(message=message, parent_id=parent_id , articles=article , users=user , email=email)
         return redirect('blog:detail' , slug)
-    
+
 class ArticlePre(AuthoAccessMixin, DetailView):
     template_name = 'blog/detail.html'
     def get_object(self):
