@@ -156,9 +156,9 @@
                         <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
                             <a href="{% url 'blog:detail' item.slug %}">
                                 <div class="card bg-dark" style="width: 18rem;">
-                                    <img src="{{item.thumbnail.url}}" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text text-asli">{{item.description|safe}}</p>
+                                    <img src="{{item.thumbnail.url}}" class="card-img-top" alt="{{ article.title }}">
+                                    <div class="card-body text-asli">
+                                        <p class="text-asli mt-2 mb-2">{{ item.description|striptags|truncatewords:12 }}</p>
                                     </div>
                                 </div>
                             </a>

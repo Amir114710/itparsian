@@ -63,9 +63,9 @@
                                 <ul class="mb-0 list-unstyled">
                                     {% for item in object.tip %}
                                         {% if item.first_col %}
-                                        <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> {{item.title}}
-                                        </li>
+                                            <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
+                                                    class="uil uil-check-circle align-middle"></i></span> {{ item.title }}
+                                            </li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
@@ -75,9 +75,9 @@
                                 <ul class="mb-0 list-unstyled">
                                     {% for item in object.tip %}
                                         {% if item.seconde_col %}
-                                        <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
-                                            class="uil uil-check-circle align-middle"></i></span> {{item.title}}
-                                        </li>
+                                            <li class="mb-0 text-asli"><span class="text-gold h4 me-2"><i
+                                                    class="uil uil-check-circle align-middle"></i></span> {{ item.title }}
+                                            </li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
@@ -177,18 +177,18 @@
     <div class="container">
         <div class="row">
             {% for item in object.services %}
-            <div class="col-lg-4 col-md-6">
-                <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
-                    <def class="service-image">
-                        <img src="{{item.icon.url}}" width="100%" height="100%" alt="">
-                    </def>
-                    <div class="content">
-                        <a class="title text-light h5" href="page-single-service.html">{{item.title}}</a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 p-4 text-center rounded features features-classic text-gold">
+                        <def class="service-image">
+                            <img src="{{ item.icon.url }}" width="100%" height="100%" alt="">
+                        </def>
+                        <div class="content">
+                            <a class="title text-light h5" href="page-single-service.html">{{ item.title }}</a>
 
-                        <p class="text-asli mb-0 mt-3">{{item.description|safe}}</p>
+                            <p class="text-asli mb-0 mt-3">{{ item.description|safe }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
             <!--end col-->
         </div>
@@ -265,6 +265,41 @@
             </div>
         </div>
         <!-- image slider js  -->
+        <div class="fasele60"></div>
+        <p class="comment-name h3">آخرین مقالات</p>
+        <div class="row">
+            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
+                <a href="#">
+                    <div class="card bg-dark" style="width: 18rem;">
+                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="">
+                        <div class="card-body text-asli">
+                            <p class="text-asli mt-2 mb-2">متن تستی</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
+                <a href="#">
+                    <div class="card bg-dark" style="width: 18rem;">
+                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="">
+                        <div class="card-body text-asli">
+                            <p class="text-asli mt-2 mb-2">متن تستی</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
+                <a href="#">
+                    <div class="card bg-dark" style="width: 18rem;">
+                        <img src="{% static 'img/blog/post.jpg' %}" class="card-img-top" alt="">
+                        <div class="card-body text-asli">
+                            <p class="text-asli mt-2 mb-2">متن تستی</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
         <div class="fasele180"></div>
 
         <div class="container">
