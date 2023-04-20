@@ -14,7 +14,7 @@ class HomeView(ListView):
             'project': ProjectDone.objects.all(),
             'content': ContentBox.objects.all(),
             'services': Services.objects.all(),
-            'recent_articles': Article.objects.filter(status="p").order_by('-publish')[0:4]
+            'recent_articles': Article.objects.filter(status="p").order_by('-publish')[0:3]
         }
         return context
 

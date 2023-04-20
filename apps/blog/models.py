@@ -66,10 +66,16 @@ class Article(models.Model):
     is_special = models.BooleanField(default=False, verbose_name="مقاله ویژه")
     hits = models.ManyToManyField("IpAddress", through="ArticleHit", blank=True, related_name="hits", verbose_name="بازدید ها")
 
+
     
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'مقاله ها'
+        verbose_name_plural = 'مقاله ها'
+        ordering = ('-created',)
 
     def get_absolute_url(self):
         return reverse("account:home")
