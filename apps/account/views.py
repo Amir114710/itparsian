@@ -15,6 +15,7 @@ from .mixins import FieldsMixin, FormValidMixin, AuthoAccessMixin, SuperUserMixi
 from .models import User
 from .forms import ProfileForm
 from django.contrib.auth.views import LoginView
+from apps.ticket.models import Ticket
 
 # Create your views here.
 # @login_required
@@ -111,3 +112,19 @@ def activate(request, uidb64, token):
         return HttpResponse('اکانت شما با موفقیت فهال شد برای ورود <a hreff="/login>کلیک </a> کنید')
     else:
         return HttpResponse('لینک فعال سازی منقضی شده است')
+
+
+
+class TicketListView(ListView):
+    template_name = 'registration/ticket-list.html'
+
+    def get_queryset(self):
+        return Ticket.objects.all()
+    
+class DeleteTicket(SuperUserMixin, DeleteView):
+    model = Ticket
+    success_url = reverse_lazy('account:ticket')
+    template_name = 'registration/ticket-delete-confirm.html'
+
+       
+

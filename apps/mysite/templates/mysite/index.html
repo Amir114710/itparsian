@@ -267,14 +267,15 @@
         <!-- image slider js  -->
         <div class="fasele60"></div>
         <p class="comment-name h3">آخرین مقالات</p>
+        
         <div class="row">
             {% for item in object.recent_articles %}
             <div class="col-md-4 mt-4 pt-2 d-flex justify-content-center">
-                <a href="#">
-                    <div class="card bg-dark" style="width: 18rem;">
+                <a href="{% url 'blog:detail' item.slug %}">
+                    <div class="card bg-dark" style="width: 18rem; height: 100%;">
                         <img src="{{item.thumbnail.url}}" class="card-img-top" alt="">
                         <div class="card-body text-asli">
-                            <p class="text-asli mt-2 mb-2"> {{item.description|safe}}</p>
+                            <p class="text-asli mt-2 mb-2"> {{item.description|striptags|truncatechars:30}}</p>
                         </div>
                     </div>
                 </a>

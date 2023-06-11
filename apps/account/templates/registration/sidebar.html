@@ -46,10 +46,16 @@
               </ul>
             </li>
             {% endif %}
+            {% if request.user.is_superuser %}
+            <li class="nav-item">
+              {% link request 'ticket' 'لیست تیکت ها' 'ticket' %}
+             
+           </li>
+            {% endif %}
           <li class="nav-item">
-             {% link request 'profile' 'پروفایل' 'person-circle' %}
-            
-          </li>
+            {% link request 'profile' 'پروفایل' 'person-circle' %}
+           
+         </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

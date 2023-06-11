@@ -7,5 +7,5 @@ register = template.Library()
 @register.inclusion_tag('mysite/../../templates/partials/category_navbar.html')
 def category_navbar():
     return{
-        'main': Mainmenu.objects.filter(status=True)
+        'main': Mainmenu.objects.filter(status=True).order_by('position')
     }

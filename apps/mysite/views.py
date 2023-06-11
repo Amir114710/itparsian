@@ -26,6 +26,29 @@ class ContactUsView(TemplateView):
     template_name = 'mysite/contact-us.html'
 
 
+class WebsiteView(ListView):
+    template_name = 'mysite/website.html'
+    context_object_name = 'obj'
+
+    def get_queryset(self):
+        context = {
+            'recent_articles': Article.objects.filter(status="p").order_by('-publish')[0:3]
+        }
+        return context
+
+
+
+class SeoView(ListView):
+    template_name = 'mysite/seo.html'
+    context_object_name = 'obj'
+
+    def get_queryset(self):
+        context = {
+            'recent_articles': Article.objects.filter(status="p").order_by('-publish')[0:3]
+        }
+        return context
+
+
 
 
 

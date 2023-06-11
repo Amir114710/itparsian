@@ -200,6 +200,16 @@ a{
     background-size: cover;
     height: 100vh;
 }
+.headbackseo{
+    background-image: url('../img/headseo.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+.headbackwebsite{
+    background-image: url('../img/head.png');
+    background-size: cover;
+    height: 100vh;
+}
 
 .headbackblog{
     background-image: url('../img/headbackblog.jpg');
