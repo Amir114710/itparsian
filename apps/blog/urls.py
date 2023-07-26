@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ArticleList, ArticleDetail, CategoryList, AuthorList, ArticlePre , SearchBox
+from .views import ArticleList, ArticleDetail, CategoryList, AuthorList, ArticlePre , SearchBox , like
 
 app_name = 'blog'
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     path('preview/<int:pk>', ArticlePre.as_view(), name='preview'),
     # default url
     path('category/<slug:slug>', CategoryList.as_view(), name='category'),
+    path('like/<slug:slug>/<int:pk>' , like , name='like'),
     # url with page id request
     path('category/<slug:slug>/page/<int:page>', CategoryList.as_view(), name='category'),
     path('author/<slug:username>', AuthorList.as_view(), name='author'),

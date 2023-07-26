@@ -130,4 +130,15 @@ class Comment(models.Model):
         verbose_name_plural = 'کامنت ها'
         ordering = ('-created',)
 
+class Favorite(models.Model):
+    article = models.ForeignKey(Article , on_delete=models.CASCADE , related_name='favorites' , verbose_name='مقاله ها')
+    user = models.ForeignKey(User , on_delete=models.CASCADE , related_name='favorites' , verbose_name='کاربر')
+    created = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.user}-{self.article.title}'
+
+    class Meta:
+        verbose_name = 'علاقه مند '
+        verbose_name_plural = 'علاقه مند  ها'
+        ordering = ('-created',)

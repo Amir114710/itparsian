@@ -1,10 +1,10 @@
 from apps.account.models import User
 from django.views.generic import ListView, DetailView , TemplateView
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Article, Category , Comment
+from .models import Article, Category , Comment, Favorite
 from apps.account.mixins import AuthoAccessMixin
 from django.core.paginator import Paginator
-
+from django.http import JsonResponse
 
 class ArticleList(ListView):
     model = Article
@@ -25,6 +25,13 @@ class ArticleDetail(DetailView):
         ip_address = self.request.user.ip_address
         if ip_address not in article.hits.all():
              article.hits.add(ip_address)
+        if self.request.user.is_authenticated == True:
+            if self.request.user.favorites.filter(article__title = self.object.title , user_id = self.request.user.id).exists():
+                context['is_liked'] = True
+            else:
+                context['is_liked'] = False
+        else:
+            pass
         return context
     
     def post(self,request,slug):
@@ -35,6 +42,14 @@ class ArticleDetail(DetailView):
         message = request.POST.get('message')
         Comment.objects.create(message=message, parent_id=parent_id , articles=article , users=user , email=email)
         return redirect('blog:detail' , slug)
+
+def like(request , slug , pk):
+    try:
+        like = Favorite.objects.get(article__slug = slug , user_id=request.user.id)
+        like.delete()
+    except:
+        Favorite.objects.create(article_id=pk , user_id = request.user.id)
+    return redirect('blog:detail' , slug)
 
 class ArticlePre(AuthoAccessMixin, DetailView):
     template_name = 'blog/detail.html'
