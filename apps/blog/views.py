@@ -26,7 +26,7 @@ class ArticleDetail(DetailView):
         if ip_address not in article.hits.all():
              article.hits.add(ip_address)
         if self.request.user.is_authenticated == True:
-            if self.request.user.favorites.filter(article__title = self.object.title , user_id = self.request.user.id).exists():
+            if ip_address.favorites.filter(article__title = self.object.title , user_ip_address = ip_address).exists():
                 context['is_liked'] = True
             else:
                 context['is_liked'] = False
@@ -45,10 +45,10 @@ class ArticleDetail(DetailView):
 
 def like(request , slug , pk):
     try:
-        like = Favorite.objects.get(article__slug = slug , user_id=request.user.id)
+        like = Favorite.objects.get(article__slug = slug , user_ip_address = request.user.ip_address)
         like.delete()
     except:
-        Favorite.objects.create(article_id=pk , user_id = request.user.id)
+        Favorite.objects.create(article_id=pk , user_ip_address = request.user.ip_address)
     return redirect('blog:detail' , slug)
 
 class ArticlePre(AuthoAccessMixin, DetailView):

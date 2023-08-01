@@ -132,11 +132,11 @@ class Comment(models.Model):
 
 class Favorite(models.Model):
     article = models.ForeignKey(Article , on_delete=models.CASCADE , related_name='favorites' , verbose_name='مقاله ها')
-    user = models.ForeignKey(User , on_delete=models.CASCADE , related_name='favorites' , verbose_name='کاربر')
+    user_ip_address = models.ForeignKey(IpAddress , blank=True , on_delete=models.CASCADE , related_name="favorites", verbose_name=" کاربر")
     created = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.user}-{self.article.title}'
+        return f'{self.article.title}'
 
     class Meta:
         verbose_name = 'علاقه مند '

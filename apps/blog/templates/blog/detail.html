@@ -34,14 +34,10 @@
                         <div> بازدید ها : {{ object.hits.count }}</div>
                         {% ratings object %}
                         <div class="bookmark">
-                        {% if request.user.is_authenticated == True %}
-                            {% if is_liked %}
-                                <a id="like-post" class="wishlist-btn" href="{% url 'blog:like' object.slug object.id %}"><i class="bi bi-heart" style="color: #D0A85C;"></i></a>                                   
-                            {% else %}
-                                <a id="like-post" class="wishlist-btn" href="{% url 'blog:like' object.slug object.id %}"><i class="bi bi-heart" style="color: #ff0000;"></i></a></a>
-                            {% endif %}
+                        {% if is_liked %}
+                        <a id="like-post" class="wishlist-btn" href="{% url 'blog:like' object.slug object.id %}"><i class="bi bi-heart" style="color: #ff0000;"></i></a></a>
                         {% else %}
-                            <p class="alert alert-danger">برای لایک کردن پست اول در <a href="{% url 'account:otp' %}">سایت ثبت نام</a> کنید</p>
+                            <a id="like-post" class="wishlist-btn" href="{% url 'blog:like' object.slug object.id %}"><i class="bi bi-heart" style="color: #D0A85C;"></i></a>                                   
                         {% endif %}
                         </div>
                     </div>
