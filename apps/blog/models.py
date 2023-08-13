@@ -4,6 +4,7 @@ from apps.account.models import User
 from django.utils.html import format_html
 from django.utils import timezone
 from extensions.utils import jalali_converter
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 
@@ -52,7 +53,7 @@ class Article(models.Model):
     )
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='articles', verbose_name='نویسنده')
     title = models.CharField(max_length=100,verbose_name='نام مقاله')
-    description = models.TextField(verbose_name='متن مقاله')
+    description = RichTextUploadingField(verbose_name='متن مقاله')
     slug = models.SlugField(max_length=100, unique=True, verbose_name='آدرس مقاله')
     category = models.ManyToManyField(Category, verbose_name="دسته بندی", related_name="articles")
     thumbnail = models.ImageField(upload_to='ArticleImg', verbose_name='تصویر ')

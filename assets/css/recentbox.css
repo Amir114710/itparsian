@@ -1,0 +1,390 @@
+.recentbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.imagemain{
+    height: 100% !important;
+    width: 100% !important;
+}
+.arrow-link{
+    font-size: 10px !important;
+}
+.launchlink{
+    font-size: 10px !important;
+}
+
+
+.recent-projects-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 0 15px
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes {
+        max-width: 100%;
+        padding: 0
+    }
+}
+
+@media(min-width:1601px) {
+    .recent-projects-boxes {
+        max-width: 100%;
+        padding: 0
+    }
+}
+
+.recent-projects-boxes .rp-item {
+    transition: z-index .5s;
+    position: relative;
+    color: #fff;
+    min-height: 300px;
+    margin-bottom: 20px;
+    width: 100%;
+    z-index: 4
+}
+
+@media(min-width:768px) {
+    .recent-projects-boxes .rp-item {
+        width:100%;
+        margin-bottom: 1.1vw
+    }
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes .rp-item {
+        min-height: 450px
+    }
+}
+
+.recent-projects-boxes .rp-item:before {
+    pointer-events: none;
+    transition: opacity .5s;
+    opacity: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background: rgba(0, 0, 0, .5)
+}
+
+.recent-projects-boxes .rp-item .rp-images-container {
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes .rp-item .rp-images-container {
+        min-height: 450px
+    }
+}
+
+.recent-projects-boxes .rp-item .rp-images-container .rp-main-image-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: transform .7s ease-in-out;
+    transform: translateZ(-1000px)
+}
+
+.recent-projects-boxes .rp-item .rp-images-container .rp-main-image-block .rp-main-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: transform .5s ease-in-out;
+    transform-origin: 0 50%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: stretch;
+    align-items: stretch
+}
+
+.recent-projects-boxes .rp-item .rp-images-container .rp-main-image-block .rp-main-image-container .rp-main-perspective-image {
+    position: relative;
+    overflow: hidden;
+    width: 0;
+    transform-origin: 100% 50%;
+    background: linear-gradient(0deg, #32373c 30%, #636265);
+    transition: all .5s ease-in-out
+}
+
+.recent-projects-boxes .rp-item .rp-images-container .rp-main-image-block .rp-main-image-container .rp-main-image-wrapper {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden
+}
+
+.recent-projects-boxes .rp-item .rp-images-container .rp-main-image-block .rp-main-image-container .rp-main-image-wrapper .rp-image {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    overflow: hidden;
+    left: -10px;
+    transition: transform .3s linear, opacity .3s;
+    transition: transform .3s linear, opacity .3s;
+}
+
+.recent-projects-boxes .rp-item .rp-images-container .rp-main-image-block .rp-main-image-container .rp-main-image-wrapper .rp-image:before {
+    transition: transform .4s ease-in-out;
+    transform: scale(2);
+    transform-origin: 100% 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, .9) 0, rgba(0, 0, 0, 0) 100%)
+}
+
+.recent-projects-boxes .rp-item .rp-images-container .rp-image-perspective {
+    transition: transform .6s ease-in-out, opacity .5s;
+    opacity: 0;
+    position: absolute;
+    right: -10%;
+    height: 100%;
+    width: auto;
+    top: 2%;
+    z-index: 2;
+    transform-origin: 65% 50%;
+    transform: perspective(1000px) rotateY(-60deg)
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes .rp-item .rp-images-container .rp-image-perspective {
+        right: -17%;
+        height: 102%
+    }
+}
+
+.recent-projects-boxes .rp-item .rp-item-container {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    transition: transform .4s ease-in-out;
+    transform: none;
+    transform-origin: 0 50%;
+    height: 300px;
+    padding: 0 8%;
+    pointer-events: none
+}
+
+@media(min-width:1200px) {
+    .recent-projects-boxes .rp-item .rp-item-container {
+        transform: translate3d(0, -60px, 0)!important
+    }
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes .rp-item .rp-item-container {
+        min-height: 450px
+    }
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description {
+    position: relative;
+    z-index: 2;
+    line-height:17px;
+    font-size: 16px;
+    padding-bottom: 7%;
+    transition: all .4s ease-in-out;
+    transform: translate3d(0, 100%, 0);
+    transform-origin: 0 50%
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top {
+    transition: transform .4s ease-in-out;
+    transform: translate3d(0, -100%, 0)
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-logo {
+    transition: all .35s ease-in-out;
+    margin-bottom: 10px
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-logo img {
+    max-width: 200px;
+    height: auto
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-logo {
+        font-size: 24px;
+        line-height: 26px;
+        margin-bottom: 20px
+    }
+    .recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-logo img {
+        max-width: initial;
+        height: initial
+    }
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-item-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    margin-bottom: 30px;
+    min-height: 24px;
+    transition: all .4s ease-in-out
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-item-title {
+        font-size: 24px;
+        line-height: 32px
+    }
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-link-sm {
+    display: inline-block;
+    pointer-events: all;
+    margin-bottom: 25px
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-link-sm .arrow-link {
+    padding: 10px 20px 10px 0;
+    color: #fff;
+    transition: color .4s .65s
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-link-sm:hover .arrow-link {
+    color: #04d0f1
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-link-sm:hover .arrow-link:after {
+    background-color: #04d0f1
+}
+
+@media(min-width:1200px) {
+    .recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-top .rp-link-sm {
+        display: none
+    }
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-text {
+    transition: opacity .7s .1s;
+    opacity: 0;
+    transition: transform .3s .2s ease-in-out;
+    max-width: 70%
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-text p {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-text p:not(:last-child) {
+    margin-bottom: 25px
+}
+
+@media(min-width:1441px) {
+    .recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-text p {
+        font-size: 21px
+    }
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-text .rp-link {
+    transition: all .6s;
+    pointer-events: all
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-description .rp-text .rp-link .arrow-link {
+    padding: 10px 20px 10px 0;
+    color: #fff;
+    transition: color .4s .65s
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-perspective-wrap {
+    display: none
+}
+
+.recent-projects-boxes .rp-item .rp-item-container .rp-perspective-wrap img {
+    display: none
+}
+
+@media(min-width:1200px) {
+    .recent-projects-boxes .rp-item .rp-perspective-wrap {
+        display: block
+    }
+    .recent-projects-boxes .rp-item:hover {
+        z-index: 5
+    }
+    .recent-projects-boxes .rp-item:hover .rp-images-container .rp-main-image-block {
+        transform: translate3d(0%, 0, 0) scale(1.02)
+    }
+    .recent-projects-boxes .rp-item:hover .rp-images-container .rp-main-image-block .rp-main-image-container {
+        transform: perspective(300px) rotateY(5deg)
+    }
+    .recent-projects-boxes .rp-item:hover .rp-images-container .rp-main-image-block .rp-main-image-container .rp-main-perspective-image {
+        transform: perspective(300px) rotateY(-40deg);
+        width: 12px
+    }
+    .recent-projects-boxes .rp-item:hover .rp-images-container .rp-main-image-block .rp-main-image-container .rp-main-image-wrapper .rp-image {
+        transition: transform 4s .4s linear, opacity .5s;
+        transform: translate3d(-8%, 0, 0)
+    }
+    .recent-projects-boxes .rp-item:hover .rp-images-container .rp-image-perspective {
+        opacity: 1;
+        transform: perspective(1000px) rotateY(0)
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container {
+        transform: translate3d(-2%, 0, 0)!important
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container .rp-description {
+        transform: perspective(300px) rotateY(3deg) translate3d(0, 0, 0)!important
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container .rp-description .rp-top {
+        transform: translate3d(0, 0, 0);
+        max-width: 74%
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container .rp-description .rp-top .rp-item-title {
+        min-height: 50px
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container .rp-description .rp-text {
+        opacity: 1
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container .rp-description .rp-text p:not(:last-child) {
+        margin-bottom: 25px
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container .rp-description .rp-text .arrow-link {
+        color: #04d0f1
+    }
+    .recent-projects-boxes .rp-item:hover .rp-item-container .rp-description .rp-text .arrow-link:after {
+        background-color: #04d0f1
+    }
+}
+
+@media(max-width:991px) {
+    .recent-projects-boxes .rp-perspective-wrap {
+        display: none
+    }
+    .recent-projects-boxes .rp-perspective-wrap picture {
+        display: none
+    }
+    .recent-projects-boxes .rp-perspective-wrap picture img {
+        display: none
+    }
+}

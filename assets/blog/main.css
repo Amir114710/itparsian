@@ -1,0 +1,30 @@
+html{direction: rtl !important}
+*{
+    font-family: peyda !important;
+}
+body{
+    background-color: #151515 !important
+}
+
+.text-article-detail {
+    font-family: peyda !important;
+}
+.slider-dvider{
+    height: 150px !important;
+    background-color: #0a53be;
+}
+
+
+.make-me-sticky {
+    position: -webkit-sticky !important;
+	position: sticky !important;
+	top: 80px !important;
+    padding: 0 15px !important;
+}
+
+.article-masthead-detail{
+    height: 500px !important;
+}
+
+
+

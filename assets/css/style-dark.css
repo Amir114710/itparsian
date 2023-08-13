@@ -1,0 +1,41 @@
+.card {
+  background: transparent;
+}
+.card .card-body {
+  padding: 1.5rem;
+}
+
+.features-absolute {
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.features-absolute {
+  margin: -200px 0 0px;
+}
+@media (max-width: 768px) {
+  .features-absolute {
+    margin: -140px 0 0;
+  }
+}
+.features.features-classic:hover {
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1) !important;
+}
+.features {
+  transition: all 0.5s ease;
+}
+.features .title {
+  transition: all 0.5s ease;
+}
+.features .fea-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+.features .fea-icon i {
+  font-size: 24px;
+}

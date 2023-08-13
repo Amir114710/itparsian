@@ -125,6 +125,7 @@
 </div>
 {% block main %}{% endblock %}
 <footer class="pt-5 footer-main">
+    {% for item in footer %}
     <div>
         <div class="container">
             <div class="d-flex justify-content-center"><img src="{% static 'img/divider4.png' %}" class="img-fix mb-4"
@@ -133,65 +134,66 @@
 
                 <div class="col-12 col-md-4">
                     <p class="text-asli text-justify text-start my-2 px-4">
-                        مجموعه آی تی پارسیان از سال 1397 فعالیت خود را در زمینه طراحی وب سایت، طراحی اپلیکیشن و دیجیتال
-                        مارکتینگ
-                        آغاز نموده است. تلاش ما همواره بر این بوده که با بهره گیری از نیروی متخصص و با تجربه در کنار
-                        نیروی جوان و با
-                        انگیزه، برترین خدمات را با استفاده از جدیدترین استانداردهای روز در دنیای وب ارائه دهیم.
-
+                        {{item.discription|safe}}
                     </p>
 
                 </div>
                 <div class="col-12 col-md-2 d-flex flex-column">
-                    <a href="/web-design" class="link-light my-2">طراحی وبسایت</a>
-                    <a href="/mobile-app" class="link-light my-2">طراحی اپلیکیشن موبایل</a>
-                    <a href="#" class="link-light my-2">دیجیتال مارکتینگ</a>
-                    <a href="#" class="link-light my-2">تولید محتوا</a>
-                    <a href="#" class="link-light my-2">سئو</a>
-
+                    {% for data in attribute1 %}
+                    <a href="{{data.address}}" class="link-light my-2">{{data.title}}</a>
+                    {% endfor %}
                 </div>
-
                 <div class="col-12 col-md-2 d-flex flex-column">
-                    <a href="/static" class="link-light my-2">صفحه اصلی</a>
-                    <a href="/blog" class="link-light my-2">وبلاگ</a>
-                    <a href="/about-us" class="link-light my-2">درباره ما</a>
-
-
+                    {% for data in attribute2 %}
+                    <a href="{{data.address}}" class="link-light my-2">{{data.title}}</a>
+                    {% endfor %}
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="d-flex align-items-center my-3"><i class="bi bi-geo-alt h4 me-3 text-blg"></i>
-                        <p class="h5 text-asli">آدرس:  تهران - شهریار - خیابان ولیعصر- مجتمع حافظ - پلاک 13</p></div>
+                        <p class="h5 text-asli">{{item.address|safe}}</p></div>
                     <div class="d-flex align-items-center my-3"><i class="bi bi-telephone h4 me-3 text-blg"></i>
-                        <p class="h5 text-asli">تلفن تماس : 65276806-021</p></div>
+                        <p class="h5 text-asli">تلفن تماس :{{item.phone_number}}</p></div>
                     <div class="d-flex align-items-center my-3"><i class="bi bi-whatsapp h4 me-3 text-blg"></i>
-                        <p class="h5 text-asli">واتس اپ :0309355-0902   |   0309354-0902</p></div>
+                        <p class="h5 text-asli">واتس اپ :{{item.whatsappphone_number}}</p></div>
                     <div class="d-flex align-items-center my-3"><i class="bi bi-envelope h4 me-3 text-blg"></i>
-                        <p class="h5 text-asli">ایمیل : info@itparsian.com</p></div>
+                        <p class="h5 text-asli">ایمیل : {{item.email}}</p></div>
                 </div>
             </div>
         </div>
         <div class="d-flex flex-row justify-content-center">
-            <div class="mx-2"><a class="text-success my-2 h3" href="">
+            {% if item.whatsapp %}
+            <div class="mx-2"><a class="text-success my-2 h3" href="{{item.whatsapp}}">
                 <i class="bi bi-whatsapp"></i>
             </a></div>
-            <div class="mx-2"><a class="text-info my-2 h3" href="">
+            {% endif %}
+            {% if item.telegram %}
+            <div class="mx-2"><a class="text-info my-2 h3" href="{{item.telegram}}">
                 <i class="bi bi-telegram"></i>
             </a></div>
-            <div class="mx-2"><a class="text-danger my-2 h3" href="">
+            {% endif %}
+            {% if item.instagram %}
+            <div class="mx-2"><a class="text-danger my-2 h3" href="{{item.instagram}}">
                 <i class="bi bi-instagram"></i>
             </a></div>
-            <div class="mx-2"><a class="text-primary my-2 h3" href="">
+            {% endif %}
+            {% if item.linkedin %}
+            <div class="mx-2"><a class="text-primary my-2 h3" href="{{item.instagram}}">
                 <i class="bi bi-linkedin"></i>
             </a></div>
-            <div class="mx-2"><a class="text-danger my-2 h3" href="">
+            {% endif %}
+            {% if item.youtube %}
+            <div class="mx-2"><a class="text-danger my-2 h3" href="{{item.youtube}}">
                 <i class="bi bi-youtube"></i>
             </a></div>
-            <div class="mx-2"><a class=" text-info my-2 h3" href="">
+            {% endif %}
+            {% if item.twwiter %}
+            <div class="mx-2"><a class=" text-info my-2 h3" href="{{item.twitter}}">
                 <i class="bi bi-twitter"></i>
             </a></div>
-
+            {% endif %}
         </div>
     </div>
+    {% endfor %}
     <div class="container">
         <div class="privacy-div text-center d-flex align-items-center justify-content-center">
 

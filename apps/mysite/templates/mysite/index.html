@@ -1,4 +1,4 @@
-{% extends 'mysite/../../templates/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load base-tags %}
 {% block custom_link %}
@@ -291,206 +291,25 @@
                     سوالات متداول </p>
             </div>
             <div class="accordion" id="accordionExample">
+                {% for item in question %}
                 <div class="item">
                     <div class="item-header" id="headingOne">
                         <h2 class="mb-0">
                             <button class="btn btn-link text-start collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                <span class="text-asli">برای شروع کسب و کار اینترنتی خودم به چی نیاز دارم؟</span>
-                                <i class="angle-down text-blg bi bi-chevron-down float-end"></i>
+                                <span class="text-asli">{{item.question|safe}}</span>
+                                <i class="angle-down text-blg bi bi-chevron-down float-end" style="margin-top: -1.5em;"></i>
                             </button>
                         </h2>
                     </div>
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
                          data-bs-parent="#accordionExample">
                         <div class="t-p">
-                            <p class="text-asli text-justify ">هدف هرکسی از داشتن یک وب سایت و یا اپلیکیشن موبایل متفاوت
-                                است
-                                و به نوع کسب و کار مربوط می شود. اما نکته ای که وجود دارد این است که هیچ نوع محدودیتی
-                                برای
-                                ورود کسب و کار خود به دنیای آنلاین وجود ندارد؛ با جمع آوری اطلاعات مورد نیاز از کسب و
-                                کار
-                                خود می توان مناسب ترین استراتژی را انتخاب نموده و از راه های ارتباطی اینترنتی، مشتریان
-                                را
-                                جذب نمایید. کافیست با مشاوره رایگان از متخصصان آی تی پارسیان، کسب و کار خود را معرفی
-                                کنید و
-                                مسیر ورود به دنیای بازاریابی دیجیتالی را به صورت هدفمند دنبال کنید</p>
+                            <p class="text-asli text-justify ">{{item.answer|safe}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="item-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link text-start collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <span class="text-asli"> آی تی پارسیان چه خدمات ارائه می دهد؟</span>
-                                <i class="angle-down text-blg bi bi-chevron-down float-end"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                         data-bs-parent="#accordionExample">
-                        <div class="t-p">
-                            <p class="text-asli text-justify ">خدمات مجموعه آی تی پارسیان شامل موارد زیر به صورت کلی می
-                                شود:
-                                <br>
-                                طراحی انواع وب سایت
-                                <br>
-
-                                طراحی اپلیکیشن موبایل
-                                <br>
-                                دیجیتال مارکتینگ
-                                <br>
-                                سئو وب سایت
-                                <br>
-                                راه اندازی استارتاپ
-                                <br>
-                                برندینگ
-                                <br>
-                                طراحی گرافیکی
-                                <br>
-                                تولید محتوا
-
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-header" id="headingThree">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link text-start collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <span class="text-asli"> طراحی وب سایت در مجموع چه مراحلی دارد؟</span>
-                                <i class="angle-down text-blg bi bi-chevron-down float-end"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                         data-bs-parent="#accordionExample">
-                        <div class="t-p">
-                            <p class="text-asli text-justify ">در قدم اول می بایست نوع کسب و کار شما و نیازهای موجود
-                                بررسی
-                                شود و متناسب با آن وب سایت و امکانات آن در قالب یک پایگاه داده دسته بندی می شوند؛ حال
-                                متناسب
-                                با نوع کسب و کار شما مراحل طراحی سایت شامل طراحی ظاهر گرافیکی و تجربه کاربری، برنامه
-                                نویسی و
-                                طراحی سایت انجام می شود، الزامیست تمامی مراحل به تائید کارفرما خواهند رسید و کارفرما
-                                مرحله
-                                به مرحله ناظر بر روند پیشرفت پروژه اش خواهد بود در انتها وب سایت تحویل داده شده و وارد
-                                مرحله
-                                آموزش و پشتیبانی خواهیم شد</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-header" id="headingFour">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link text-start collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <span class="text-asli"> مدت زمان طراحی وب سایت و یا اپلیکیشن موبایل به چه صورت خواهد بود؟</span>
-                                <i class="angle-down text-blg bi bi-chevron-down float-end"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                         data-bs-parent="#accordionExample">
-                        <div class="t-p">
-                            <p class="text-asli text-justify ">مدت زمان انجام یک پروژه کاملا بستگی به نوع کسب وکار و
-                                گستردگی
-                                و امکانات آن پروژه متفاوت خواهد بود اما به طور کلی مدت زمان انجام یک پروژه استاندارد بین
-                                ۱
-                                تا ۴ ماه متفاوت خواهد بود.</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-header" id="headingFive">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link text-start collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                <span class="text-asli">قیمت طراحی وب سایت به چه صورت خواهد بود؟</span>
-                                <i class="angle-down text-blg bi bi-chevron-down float-end"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                         data-bs-parent="#accordionExample">
-                        <div class="t-p">
-                            <p class="text-asli text-justify ">طراحی وب سایت یک پروژه کاملا شخصی سازی شده و منحصر به
-                                شماست؛
-                                هزینه طراحی وب سایت به عواملی از جمله نوع وب سایت، امکانات و ویژگی های استفاده شده در وب
-                                سایت و در مجموع نیاز های شما متفاوت خواهد بود و قیمت مشخصی برای آن وجود ندارد؛ با این
-                                حال
-                                متخصصان آی تی پارسیان آماده شنیدن کسب و کار شما و نیاز های متناظر آن می باشند تا با
-                                بررسی
-                                دقیق تر برآورد قیمت متناسبی را به شما ارائه دهند.</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-header" id="headingsix">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link text-start collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                                <span class="text-asli"> آی تی پارسیان برای طراحی وب سایت و اپلیکیشن موبایل شما از چه تیم هایی استفاده می نماید؟</span>
-                                <i class="angle-down text-blg bi bi-chevron-down float-end"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapsesix" class="collapse" aria-labelledby="headingsix"
-                         data-bs-parent="#accordionExample">
-                        <div class="t-p">
-                            <p class="text-asli text-justify ">تلاش ما در مجموعه آی تی پارسیان استفاده ازتخصص نیروهایی
-                                با
-                                تجربه در کنار پتانسیل، خلاقیت و انگیزه نیروهای جوان بوده؛ مجموعه آی تی پارسیان شامل بخش
-                                های
-                                مختلفی از جمله موارد ذیل می باشد:
-                                <br>
-                                تیم طراحی ui و ux
-                                <br>
-                                تیم طراحی رابط کاربری وب سایت (front-end)
-                                <br>
-                                تیم برنامه نویسی وب سایت(back-end)
-                                <br>
-                                تیم برنامه نویسی اپلیکیشن موبایل
-                                <br>
-                                تیم تخصصی خدمات سئو سایت
-                                <br>
-                                تیم طراحی گرافیکی
-                                <br>
-                                تیم تولید محتوا
-                                <br>
-                                تیم مدیریت شبکه های اجتماعی</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-header" id="headingseven">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link text-start collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-                                <span class="text-asli"> پشتیبانی خدمات در آی تی پارسیان به چه صورت خواهد بود؟</span>
-                                <i class="angle-down text-blg bi bi-chevron-down float-end"></i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseseven" class="collapse" aria-labelledby="headingseven"
-                         data-bs-parent="#accordionExample">
-                        <div class="t-p">
-                            <p class="text-asli text-justify ">نکته ای که کاملا ذهن مشتریان ما را درگیر خود کرده
-                                پشتیبانی
-                                خدمات می باشد؛ اولین مرحله پس از اتمام مراحل پروژه، آموزش می باشد که شامل مواردی از جمله
-                                آموزش کار با پنل مدیریت محتوا، آموزش اشتراک گذاری مقالات در وبلاگ سایت و... می شود؛
-                                همچنین
-                                خدمات پشتیبانی فنی پروژه توسط مجوعه آی تی پارسیان در اختیار شما قرار خواهد گرفت</p>
-
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

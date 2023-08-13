@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from .settings import base as settings
+from . import settings
 from apps.account.views import Login, Register, activate
 
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
                 path('register/', Register.as_view(), name='register'),
                 path('activate/<uidb64>/<token>/', activate, name='activate'),
                 path('ratings/', include('star_ratings.urls', namespace='ratings')),
+                path('ckeditor/' , include('ckeditor_uploader.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
